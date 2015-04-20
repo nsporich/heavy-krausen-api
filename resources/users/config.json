@@ -1,0 +1,13 @@
+{
+	"type": "UserCollection",
+	"properties": {
+		"friendly": {
+			"name": "friendly",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "friendly",
+			"order": 0
+		}
+	}
+}
