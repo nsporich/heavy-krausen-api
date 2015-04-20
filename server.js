@@ -12,7 +12,7 @@ var io = require('socket.io').listen(server, {'log level': 0});
 require('deployd').attach(server, {
     socketIo: io,  // if not provided, attach will create one for you.
     env: ENV,
-    db: {host:'localhost', port:27017, name:'keavy-krausen'}
+    db: {host:'localhost', port:27017, name:'heavy-krausen'}
 });
 
 // After attach, express can use server.handleRequest as middleware
