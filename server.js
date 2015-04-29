@@ -1,6 +1,6 @@
 // server.js
 var PORT = process.env.PORT || 3000;
-var ENV = process.env.NODE_ENV || 'development';
+var ENV = process.env.NODE_ENV || 'development'; //this is needed for dashboard
 
 // setup http + express + socket.io
 var express = require('express');

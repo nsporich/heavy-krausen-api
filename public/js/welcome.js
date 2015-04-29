@@ -1,7 +1,7 @@
 dpd.users.me(function(user) {
     if (user) {
-        $('msg').text("Signed in as " + user.friendlyName);
-    } 
+        $('msg').text("Signed in as " + user.friendly);
+    }
         else {
             location.href = "/";
         }
