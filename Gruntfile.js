@@ -7,13 +7,13 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
 
     // configure sass to css magic
-    sass: {
-        build: {
-            files: {
-                'public/src/css/style.css': 'public/src/sass/style.scss'
-            }
-        }
-    },
+    // sass: {
+    //     build: {
+    //         files: {
+    //             'public/src/css/style.css': 'public/src/sass/style.scss'
+    //         }
+    //     }
+    // },
 
     // configure jshint to validate js files
     jshint: {
@@ -73,5 +73,5 @@ module.exports = function(grunt) {
   });
 
   // Default Profile
-  grunt.registerTask('default', ['sass', 'jshint', 'concat', 'uglify']);
+  grunt.registerTask('default', ['jshint', 'concat', 'uglify']);
 };
