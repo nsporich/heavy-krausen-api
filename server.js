@@ -20,4 +20,4 @@ app.use(server.handleRequest);
 
 // start server
 server.listen(PORT);
-console.log('heavy-krausen is listening on port ' + PORT);
+console.log('heavy-krausen-api is listening on port ' + PORT);
