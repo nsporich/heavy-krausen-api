@@ -1,3 +1,4 @@
+angular.module('heavyKrausen', ['MainCtrl', 'TestService']);
 
 /*!
  * jQuery JavaScript Library v1.11.0

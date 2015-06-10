@@ -15,9 +15,13 @@ require('deployd').attach(server, {
     db: {host:'localhost', port:27017, name:'heavy-krausen'}
 });
 
-// After attach, express can use server.handleRequest as middleware
+app.use(express.static(__dirname + '/public'));
+
+app.get('/', function(req, res) {
+    res.sendfile('./public/views/index.html');
+});
+
 app.use(server.handleRequest);
 
-// start server
 server.listen(PORT);
 console.log('heavy-krausen-api is listening on port ' + PORT);

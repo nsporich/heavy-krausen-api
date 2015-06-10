@@ -9,25 +9,19 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <!-- Mobile Specific Metas
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="stylesheet" href="dist/css/app.css">
-
-  <!-- Favicon
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="favicon.png">
 
-  <!-- FONT
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="dist/css/app.min.css">
 
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+  <script src="src/js/controllers/MainCtrl.js"></script>
+	<script src="src/js/services/TestService.js"></script>
+  <script src="dist/js/app.min.js"></script>
 
 </head>
-<body>
+<body ng-app="heavyKrausen" ng-controller="mainController">
 
   <!-- Primary Page Layout -->
   <!-- Sidebar -->
@@ -77,7 +71,7 @@
         <div class="page-header">
           <h1 class="text-center">Welcome to HeavyKrausen</h1>
         </div>
-        <p class="lead text-center">A Homebrew API, for the community, inspired by the community.</p>
+        <p class="lead text-center"> {{ message }} </p>
         <div class="container">
           <h4>Stuff is going to happen here.</h4>
           <p>uisque tristique tellus vehicula dui sollicitudin, vitae sagittis lorem blandit. Vivamus non lorem nec ex iaculis lobortis non in nulla. In ut felis at lacus vehicula mollis. Aliquam id augue congue justo facilisis finibus. Phasellus mattis nulla a ex bibendum posuere. Curabitur hendrerit in nulla et facilisis. Phasellus in condimentum elit. Morbi diam turpis, laoreet at euismod et, ornare scelerisque dolor. Cras vitae vestibulum purus, ut vulputate nulla. Duis a ante molestie ligula vehicula convallis in non justo. Pellentesque viverra ligula sit amet lectus faucibus, sed aliquet nibh aliquet. </p>
@@ -87,7 +81,7 @@
       </div>
       <!-- /container -->
 
-      <script src="dist/js/app.min.js"></script>
+
 
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->

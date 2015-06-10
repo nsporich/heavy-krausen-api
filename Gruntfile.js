@@ -44,6 +44,14 @@ module.exports = function(grunt) {
       }
     },
 
+    cssmin: {
+      build: {
+        files: {
+          'public/dist/css/app.min.css': 'public/dist/css/app.css'
+        }
+      }
+    },
+
     // configure uglify to minify js files
     uglify: {
       options: {
@@ -54,24 +62,36 @@ module.exports = function(grunt) {
           'public/dist/js/app.min.js': 'public/dist/js/app.js'
         }
       }
+    },
+
+    watch: {
+      css: {
+        files: ['public/src/css/**/*.css'],
+        tasks: ['cssmin']
+      },
+      js: {
+        files: ['public/src/js/**/*.js'],
+        tasks: ['jshint', 'uglify']
+      }
+    },
+
+    nodemon: {
+      dev: {
+        script: 'server.js'
+      }
+    },
+
+    // run watch and nodemon at the same time
+    concurrent: {
+      options: {
+        logConcurrentOutput: true
+      },
+      tasks: ['nodemon', 'watch']
     }
-
-    // // watch tasks
-    // watch: {
-    //   // css: {
-    //   //   files: ['public/src/css/**/*.scss'],
-    //   //   tasks: ['sass', 'cssmin']
-    //   // },
-    //   js: {
-    //     files: ['public/src/js/**/*.js'],
-    //     tasks: ['jshint', 'uglify']
-    //   }
-    // }
-
 
 
   });
 
   // Default Profile
-  grunt.registerTask('default', ['jshint', 'concat', 'uglify']);
+  grunt.registerTask('default', ['cssmin', 'jshint', 'concat', 'uglify', 'concurrent']);
 };
