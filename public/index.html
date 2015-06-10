@@ -15,13 +15,20 @@
   <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="dist/css/app.min.css">
 
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+  <script src="libs/angular/angular.min.js"></script>
+	<script src="libs/angular-route/angular-route.min.js"></script>
+
   <script src="src/js/controllers/MainCtrl.js"></script>
+  <script src="src/js/controllers/StyleCtrl.js"></script>
+  <script src="src/js/controllers/HopsCtrl.js"></script>
+  <script src="src/js/controllers/YeastCtrl.js"></script>
 	<script src="src/js/services/TestService.js"></script>
+
+  <script src="src/js/appRoutes.js"></script>
   <script src="dist/js/app.min.js"></script>
 
 </head>
-<body ng-app="heavyKrausen" ng-controller="mainController">
+<body ng-app="heavyKrausen" ng-controller="MainController">
 
   <!-- Primary Page Layout -->
   <!-- Sidebar -->
@@ -70,20 +77,12 @@
       <div class="container">
         <div class="page-header">
           <h1 class="text-center">Welcome to HeavyKrausen</h1>
+          <p class="text-center">{{message}}</p>
         </div>
-        <p class="lead text-center"> {{ message }} </p>
-        <div class="container">
-          <h4>Stuff is going to happen here.</h4>
-          <p>uisque tristique tellus vehicula dui sollicitudin, vitae sagittis lorem blandit. Vivamus non lorem nec ex iaculis lobortis non in nulla. In ut felis at lacus vehicula mollis. Aliquam id augue congue justo facilisis finibus. Phasellus mattis nulla a ex bibendum posuere. Curabitur hendrerit in nulla et facilisis. Phasellus in condimentum elit. Morbi diam turpis, laoreet at euismod et, ornare scelerisque dolor. Cras vitae vestibulum purus, ut vulputate nulla. Duis a ante molestie ligula vehicula convallis in non justo. Pellentesque viverra ligula sit amet lectus faucibus, sed aliquet nibh aliquet. </p>
-          <p>n hac habitasse platea dictumst. Donec ut ultrices leo. Proin in ligula ut mauris fermentum ornare sed non felis. Nulla pulvinar mi lectus, et feugiat ligula dictum ut. Integer velit purus, fermentum in accumsan sit amet, gravida euismod felis. Vestibulum pellentesque tristique est dapibus eleifend. Sed bibendum turpis nec enim consequat aliquam.</p>
-          <p>Nunc ac gravida justo, a lacinia tellus. Proin placerat metus bibendum sapien porttitor, non interdum risus sagittis. Praesent ac risus at nisi tempor placerat. Vestibulum at auctor metus. Maecenas quis ipsum eget orci vestibulum sollicitudin et sed lorem. Quisque semper blandit venenatis. Integer nec dui libero. Integer id felis et purus pretium bibendum vel ac justo. Sed quis tristique purus. Nullam justo metus, finibus iaculis cursus in, tempus vitae neque. Morbi vitae maximus risus. Aliquam sed placerat tellus.</p>
-        </div>
+
+      <!-- ANGULAR DYNAMIC CONTENT -->
+  	    <div ng-view></div>
       </div>
-      <!-- /container -->
 
-
-
-<!-- End Document
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>
 </html>

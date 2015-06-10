@@ -1,1 +1,1 @@
-angular.module('heavyKrausen', ['MainCtrl', 'TestService']);
+angular.module('heavyKrausen', ['ngRoute', 'appRoutes', 'MainCtrl', 'StyleCtrl', 'HopsCtrl', 'YeastCtrl', 'TestService']);
