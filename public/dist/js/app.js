@@ -1,5 +1,3 @@
-angular.module('heavyKrausen', ['ngRoute', 'appRoutes', 'MainCtrl', 'StyleCtrl', 'HopsCtrl', 'YeastCtrl', 'TestService']);
-
 /*!
  * jQuery JavaScript Library v1.11.0
  * http://jquery.com/
