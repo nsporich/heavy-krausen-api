@@ -22,6 +22,9 @@ module.exports = function(grunt) {
       },
       build: [
         'Gruntfile.js',
+        'server.js',
+        'public/src/js/controllers/*.js',
+        'public/src/js/services/*.js',
         'public/src/js/*.js'
       ]
     },
@@ -30,10 +33,9 @@ module.exports = function(grunt) {
     concat: {
       js: {
         src: [
-            //'public/src/js/app.js',  // This specific file
             'public/src/js/lib/*.js' // All JS in the libs folder
         ],
-        dest: 'public/dist/js/app.js',
+        dest: 'public/dist/js/lib/app.js',
       },
       css: {
         src: [
@@ -59,7 +61,12 @@ module.exports = function(grunt) {
       },
       js: {
         files: {
-          'public/dist/js/app.min.js': 'public/dist/js/app.js'
+          'public/dist/js/lib/app.min.js': 'public/dist/js/lib/app.js',
+          'public/dist/js/controllers/MainCtrl.min.js': 'public/src/js/controllers/MainCtrl.js',
+          'public/dist/js/controllers/HopsCtrl.min.js': 'public/src/js/controllers/HopsCtrl.js',
+          'public/dist/js/controllers/StyleCtrl.min.js': 'public/src/js/controllers/StyleCtrl.js',
+          'public/dist/js/controllers/YeastCtrl.min.js': 'public/src/js/controllers/YeastCtrl.js',
+          'public/dist/js/services/TestService.min.js': 'public/src/js/services/TestService.js'
         }
       }
     },
@@ -93,5 +100,5 @@ module.exports = function(grunt) {
   });
 
   // Default Profile
-  grunt.registerTask('default', ['cssmin', 'jshint', 'concat', 'uglify', 'concurrent']);
+  grunt.registerTask('default', ['jshint', 'concat', 'cssmin', 'uglify', 'concurrent']);
 };
