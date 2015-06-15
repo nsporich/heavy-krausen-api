@@ -6,6 +6,7 @@
         "font-awesome": "latest",
         "animate.css": "latest",
         "angular": "latest",
-        "angular-ui-router": "latest"
+        "angular-ui-router": "latest",
+        "jasny-bootstrap": "latest"
     }
 }

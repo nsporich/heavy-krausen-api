@@ -6,28 +6,26 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
   <title>HeavyKrausen | A Homebrew API</title>
-  <meta name="description" content="">
-  <meta name="author" content="">
+  <meta name="description" content="A Homebrew API">
+  <meta name="author" content="Nick Sporich">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/png" href="favicon.png">
 
-  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
-
+  <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="libs/jasny-bootstrap/dist/css/jasny-bootstrap.min.css">
   <link rel="stylesheet" href="dist/css/app.min.css">
 
+  <!-- JS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script src="libs/jquery/dist/jquery.min.js"></script>
   <script src="libs/angular/angular.min.js"></script>
   <script src="libs/angular-ui-router/release/angular-ui-router.min.js"></script>
-
-  <script src="dist/js/controllers/MainCtrl.min.js"></script>
-  <script src="dist/js/controllers/StyleCtrl.min.js"></script>
-  <script src="dist/js/controllers/HopsCtrl.min.js"></script>
-  <script src="dist/js/controllers/YeastCtrl.min.js"></script>
-	<script src="dist/js/services/TestService.min.js"></script>
-
-  <script src="dist/js/lib/app.min.js"></script>
-  <script src="app.js"></script>
+  <script src="libs/jasny-bootstrap/dist/js/jasny-bootstrap.min.js"></script>
+  <script src="dist/js/app.min.js"></script>
 
 </head>
 <body>
@@ -40,16 +38,17 @@
           <li>
 
             <!-- Admin Panel Menu/ (Hidden unless Logged In) -->
-            <div class="container">
+            <div class="container" ng-controller="CurrentUserController">
                 <div class="row">
                   <div class="well well-sm">
                       <div class="media">
                           <a class="thumbnail pull-left" href="#">
-                              <img class="media-object" src="http://www.infotimes.org/sites/all/themes/custom/infotimes_theme/css/default-avatar.jpg">
+                              <img class="media-object" src="{{ user.profile._json.picture }}">
                           </a>
                           <div class="media-body">
-                              <h4 class="media-heading">User Name</h4>
-                      		    <p><span class="label label-info">Administrator</span></p>
+                              <h4 class="media-heading">{{ user.profile.displayName }}</h4>
+                              <p><span>{{ user.profile.emails[0].value }}</span></p>
+                      		    <p><span class="label label-info">{{ user.profile.provider | uppercase }}</span></p>
                           </div>
                       </div>
                   </div>
@@ -77,9 +76,9 @@
           <h1 class="text-center">Welcome to HeavyKrausen</h1>
         </div>
 
-      <!-- ANGULAR DYNAMIC CONTENT -->
-      <div ui-view></div>
-      </div>
+    <!-- ANGULAR DYNAMIC CONTENT -->
+    <div ui-view></div>
+    </div>
 
 </body>
 </html>

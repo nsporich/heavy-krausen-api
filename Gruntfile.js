@@ -6,6 +6,16 @@ module.exports = function(grunt) {
 
     pkg: grunt.file.readJSON('package.json'),
 
+    bower: {
+      install: {
+        options: {
+          install: true,
+          copy: false,
+          targetDir: './public/libs',
+          cleanTargetDir: true
+        }
+      }
+    },
     // configure sass to css magic
     // sass: {
     //     build: {
@@ -23,9 +33,7 @@ module.exports = function(grunt) {
       build: [
         'Gruntfile.js',
         'server.js',
-        'public/src/js/controllers/*.js',
-        'public/src/js/services/*.js',
-        'public/src/js/*.js'
+        'public/src/js/**/*.js'
       ]
     },
 
@@ -33,14 +41,14 @@ module.exports = function(grunt) {
     concat: {
       js: {
         src: [
-            'public/src/js/lib/*.js' // All JS in the libs folder
+            'public/src/js/**/*.js',
+            'public/src/js/*.js' // All JS in the libs folder
         ],
-        dest: 'public/dist/js/lib/app.js',
+        dest: 'public/dist/js/app.js',
       },
       css: {
         src: [
-            'public/src/css/*.css',  // This specific file
-            'public/src/css/lib/*.css' // All JS in the libs folder
+            'public/src/css/*.css' // All JS in the libs folder
         ],
         dest: 'public/dist/css/app.css',
       }
@@ -61,12 +69,10 @@ module.exports = function(grunt) {
       },
       js: {
         files: {
-          'public/dist/js/lib/app.min.js': 'public/dist/js/lib/app.js',
-          'public/dist/js/controllers/MainCtrl.min.js': 'public/src/js/controllers/MainCtrl.js',
-          'public/dist/js/controllers/HopsCtrl.min.js': 'public/src/js/controllers/HopsCtrl.js',
-          'public/dist/js/controllers/StyleCtrl.min.js': 'public/src/js/controllers/StyleCtrl.js',
-          'public/dist/js/controllers/YeastCtrl.min.js': 'public/src/js/controllers/YeastCtrl.js',
-          'public/dist/js/services/TestService.min.js': 'public/src/js/services/TestService.js'
+          'public/dist/js/app.min.js': 'public/dist/js/app.js'
+        },
+        options: {
+          mangle: false
         }
       }
     },
@@ -74,11 +80,14 @@ module.exports = function(grunt) {
     watch: {
       css: {
         files: ['public/src/css/**/*.css'],
-        tasks: ['cssmin']
+        tasks: ['concat', 'cssmin']
       },
       js: {
         files: ['public/src/js/**/*.js'],
-        tasks: ['jshint', 'uglify']
+        tasks: ['jshint', 'concat', 'uglify']
+      },
+      options: {
+        atBegin: true
       }
     },
 
@@ -93,12 +102,12 @@ module.exports = function(grunt) {
       options: {
         logConcurrentOutput: true
       },
-      tasks: ['nodemon', 'watch']
+      tasks: ['watch', 'nodemon']
     }
 
 
   });
 
   // Default Profile
-  grunt.registerTask('default', ['jshint', 'concat', 'cssmin', 'uglify', 'concurrent']);
+  grunt.registerTask('default', ['bower', 'jshint', 'concat', 'cssmin', 'uglify', 'concurrent']);
 };
