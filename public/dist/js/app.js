@@ -1,4 +1,4 @@
-var heavyKrausen = angular.module('heavyKrausen', ['ui.router', 'MainCtrl', 'StyleCtrl', 'HopsCtrl', 'YeastCtrl', 'TestService']);
+var heavyKrausen = angular.module('heavyKrausen', ['ui.router', 'MainCtrl', 'StyleCtrl', 'HopsCtrl', 'YeastCtrl', 'ProfileCtrl', 'TestService']);
 
 heavyKrausen.config(function($stateProvider, $urlRouterProvider) {
 
@@ -23,25 +23,17 @@ heavyKrausen.config(function($stateProvider, $urlRouterProvider) {
       url: "/yeast",
       templateUrl: "partials/yeast.html",
       controller: 'YeastController'
+    })
+    .state('profile', {
+      url: "/profile",
+      templateUrl: "partials/profile.html",
+      controller: 'ProfileController'
     });
 });
 
 heavyKrausen.factory('myCache', function($cacheFactory) {
 return $cacheFactory('myData');
 });
-
-heavyKrausen.controller('CurrentUserController', ['$scope', '$http', 'myCache',
-function ($scope, $http, myCache) {
-
-    $http.get('/users/me', {cache: myCache}).
-    success(function(data, status, headers, config) {
-      $scope.user = data;
-    }).
-    error(function(data, status, headers, config) {
-      // log error
-    });
-  }
-]);
 
 angular.module('HopsCtrl', [])
 
@@ -58,6 +50,21 @@ angular.module('MainCtrl', [])
     $scope.message = 'A Homebrew API - Created for the Community - Inspired by the Community';
 
 }]);
+
+angular.module('ProfileCtrl', [])
+
+.controller('ProfileController', ['$scope', '$http', 'myCache',
+function ($scope, $http, myCache) {
+
+    $http.get('/users/me', {cache: myCache}).
+    success(function(data, status, headers, config) {
+      $scope.user = data;
+    }).
+    error(function(data, status, headers, config) {
+      // log error
+    });
+  }
+]);
 
 angular.module('StyleCtrl', [])
 

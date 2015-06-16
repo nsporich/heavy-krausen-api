@@ -38,17 +38,17 @@
           <li>
 
             <!-- Admin Panel Menu/ (Hidden unless Logged In) -->
-            <div class="container" ng-controller="CurrentUserController">
+            <div class="container" ng-controller="ProfileController">
                 <div class="row">
                   <div class="well well-sm">
                       <div class="media">
-                          <a class="thumbnail pull-left" href="#">
+                          <a class="thumbnail" ui-sref="profile">
                               <img class="media-object" src="{{ user.profile._json.picture }}">
                           </a>
                           <div class="media-body">
                               <h4 class="media-heading">{{ user.profile.displayName }}</h4>
                               <p><span>{{ user.profile.emails[0].value }}</span></p>
-                      		    <p><span class="label label-info">{{ user.profile.provider | uppercase }}</span></p>
+                      		    <p><span class="label label-warning">{{ user.profile.provider | uppercase }}</span></p>
                           </div>
                       </div>
                   </div>

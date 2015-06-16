@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="well">
+      <div class="media">
+          <div class="media-body">
+              <h4 class="media-heading">{{ user.profile.displayName }}</h4>
+              <p><span>{{ user.profile.emails[0].value }}</span></p>
+              <p><span class="label label-warning">{{ user.profile.provider | uppercase }}</span></p>
+          </div>
+      </div>
+  </div>
+</div>
